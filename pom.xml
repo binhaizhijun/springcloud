@@ -4,10 +4,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.atguigu.springcloud</groupId>
+  <groupId>com.atguigu.springcloud</groupId>    <!--g  a v  : maven坐标-->
   <artifactId>cloud2020</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>pom</packaging>   <!--表示是一个pom父工程-->
+
+  <modules>
+    <module>cloud-provider-payment8001</module>
+  </modules>
 
   <!-- 统一管理jar包版本 -->
   <properties>
