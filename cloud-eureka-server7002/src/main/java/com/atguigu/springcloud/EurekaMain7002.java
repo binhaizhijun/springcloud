@@ -2,22 +2,20 @@ package com.atguigu.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * @ProjectName: cloud2020
  * @Package: com.atguigu.springcloud
- * @ClassName: PaymentMain8001
+ * @ClassName: EurekaMain7002
  * @Description: java类作用描述
  * @Author: 滨海之君
- * @CreateDate: 2020/8/22 22:10
+ * @CreateDate: 2020/8/24 19:29
  */
 @SpringBootApplication
-@EnableEurekaClient
-@EnableDiscoveryClient
-public class PaymentMain8001 {
+@EnableEurekaServer
+public class EurekaMain7002 {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMain8001.class,args);
+        SpringApplication.run(EurekaMain7002.class,args);
     }
 }
