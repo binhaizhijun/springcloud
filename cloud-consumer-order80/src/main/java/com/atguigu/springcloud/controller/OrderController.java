@@ -3,6 +3,7 @@ package com.atguigu.springcloud.controller;
 import com.atguigu.springcloud.entities.CommonReslut;
 import com.atguigu.springcloud.entities.Payment;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +33,14 @@ public class OrderController {
     @GetMapping("/consumer/payment/get/{id}")
     public CommonReslut getPayment(@PathVariable("id") Long id){
         return restTemplate.getForObject(PAYMENT_URL+"/payment/get/"+id,CommonReslut.class);
+    }
+    @GetMapping("/consumer/payment/getForEntity/{id}")
+    public CommonReslut<Payment> getPayment2(@PathVariable("id") Long id){
+        ResponseEntity<CommonReslut> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonReslut.class);
+        if(entity.getStatusCode().is2xxSuccessful()){
+            return entity.getBody();
+        }else {
+            return new CommonReslut<>(444,"操作失败");
+        }
     }
 }
