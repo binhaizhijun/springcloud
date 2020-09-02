@@ -1,7 +1,8 @@
 package com.atguigu.springcloud.controller;
 
-import com.atguigu.springcloud.entities.CommonReslut;
+import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
+
 import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,24 +27,24 @@ public class PaymentController {
     private String port;
 
     @PostMapping(value = "/payment/create")
-    public CommonReslut create(@RequestBody Payment payment){
+    public CommonResult create(@RequestBody Payment payment){
         int result = paymentService.create(payment);
         log.info("**************插入结果"+result);
         if(result>0){
-            return new CommonReslut(200,"插入数据成功,serverPort "+port,payment);
+            return new CommonResult(200,"插入数据成功,serverPort "+port,payment);
         }else {
-            return new CommonReslut(444,"插入数据失败");
+            return new CommonResult(444,"插入数据失败");
         }
     }
 
     @GetMapping(value = "/payment/get/{id}")
-    public CommonReslut getPaymentById(@PathVariable("id") Long id){
+    public CommonResult getPaymentById(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         log.info("************查询结果:"+payment);
         if(payment!=null){
-            return new CommonReslut(200,"查询成功,serverPort "+port,payment);
+            return new CommonResult(200,"查询成功,serverPort "+port,payment);
         }else {
-            return new CommonReslut(444,"没有查询到数据,查询的id:"+id);
+            return new CommonResult(444,"没有查询到数据,查询的id:"+id);
         }
     }
 }

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 /**
  * @ProjectName: cloud2020
  * @Package: com.atguigu.springcloud.entities
- * @ClassName: CommonReslut
+ * @ClassName: CommonResult
  * @Description: 返回给前端的通用json实体串
  * @Author: 滨海之君
  * @CreateDate: 2020/8/22 22:25
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommonReslut<T> {
+public class CommonResult<T> {
     private Integer code;
     private String message;
     private T data;
@@ -25,7 +25,7 @@ public class CommonReslut<T> {
      * @param code
      * @param message
      */
-    public CommonReslut(Integer code,String message){
+    public CommonResult(Integer code,String message){
         this(code,message,null);
     }
 }
