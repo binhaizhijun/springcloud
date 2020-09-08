@@ -1,0 +1,13 @@
+###consul端口号
+server:
+  port: 90
+spring:
+  application:
+    name: cloud-consumer-order
+###consul注册中心地址
+  cloud:
+    consul:
+      host: localhost
+      discovery:
+        port: 8500
+        service-name: ${spring.application.name}
